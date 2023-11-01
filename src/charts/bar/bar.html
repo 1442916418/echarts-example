@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>柱状图 | ECharts</title>
+    <link rel="stylesheet" href="../../../style.css" />
+    <link rel="stylesheet" href="./bar.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="bar"></div>
+      <div id="bar1"></div>
+      <div id="bar2"></div>
+      <div id="bar3"></div>
+    </div>
+
+    <script type="module">
+      import { debounce } from '../../utils/common.js'
+      import { handleInitChart, handleChartOptions } from '../../utils/charts.js'
+      import {
+        handleBarOptionsData,
+        handleBarOptionsData1,
+        handleBarOptionsData2,
+        handleBarOptionsData3
+      } from './bar.js'
+
+      // 堆叠图
+      let echartsInstance = void 0
+      // 双侧 y 轴柱状图
+      let echartsInstance1 = void 0
+      // 横向柱状图
+      let echartsInstance2 = void 0
+      // 柱状图
+      let echartsInstance3 = void 0
+      const resizeFun = () => handleResize()
+
+      const initChart = () => {
+        echartsInstance = handleInitChart('bar')
+        echartsInstance1 = handleInitChart('bar1')
+        echartsInstance2 = handleInitChart('bar2')
+        echartsInstance3 = handleInitChart('bar3')
+
+        handleChartOptions(echartsInstance, handleBarOptionsData())
+        handleChartOptions(echartsInstance1, handleBarOptionsData1())
+        handleChartOptions(echartsInstance2, handleBarOptionsData2())
+        handleChartOptions(echartsInstance3, handleBarOptionsData3())
+      }
+      const handleResize = debounce(() => {
+        echartsInstance?.resize()
+        echartsInstance1?.resize()
+        echartsInstance2?.resize()
+        echartsInstance3?.resize()
+      }, 300)
+      const handleAddEventListener = () => {
+        window.addEventListener('resize', resizeFun, { passive: true })
+      }
+      const handleRemoveEventListener = () => {
+        window.removeEventListener('resize', resizeFun)
+      }
+      const handleInit = () => {
+        initChart()
+        handleAddEventListener()
+      }
+      const handleReset = () => {
+        handleRemoveEventListener()
+      }
+
+      window.onload = handleInit
+      window.onunload = handleReset
+    </script>
+  </body>
+</html>
