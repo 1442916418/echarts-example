@@ -38,6 +38,12 @@ export const HexToRGBA = (hex, a = 1) => {
   return `rgba(${r}, ${g}, ${b}, ${a})`
 }
 
+/**
+ * 轮询定时器
+ * @param {Function} callback 函数
+ * @param {Number} interval 时间间隔(毫秒)
+ * @returns {clear: Function} 清除定时器函数
+ */
 export const customInterval = (callback, interval) => {
   let timerId = []
 
@@ -84,6 +90,24 @@ export const getRandomFloat = (min = 1.1, max = 2) => {
   return parseFloat(randomFloat.toFixed(2))
 }
 
+/**
+ * 生成随机整数值列表
+ * @param {Number} len 数组长度
+ * @param {Number} min 最小值
+ * @param {Number} max 最大值
+ * @returns 数组
+ */
 export const getRandomList = (len = 10, min = 0, max = 10) => {
   return new Array(len).fill('').map(() => getRandomInt(min, max))
+}
+
+/**
+ * 生成带前缀的列表
+ * @param {Number} length 数组长度
+ * @param {String} prefix value 前缀
+ * @param {String} suffix value 后缀
+ * @returns 数组
+ */
+export const getGenerateArrayWithPrefix = (length = 5, prefix = 'T', suffix = '') => {
+  return Array.from({ length }, (_, index) => `${prefix}${index + 1}${suffix}`)
 }

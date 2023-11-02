@@ -3,48 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>柱状图 | ECharts</title>
+    <title>仪表盘 | ECharts</title>
     <link rel="stylesheet" href="../../../style.css" />
-    <link rel="stylesheet" href="./bar.css" />
   </head>
 
   <body>
     <section class="container">
-      <!-- 堆叠图 -->
-      <div id="bar"></div>
-      <!-- 双侧 y 轴柱状图 -->
-      <div id="bar1"></div>
-      <!-- 横向柱状图 -->
-      <div id="bar2"></div>
-      <!-- 柱状图 -->
-      <div id="bar3"></div>
-      <!-- 立体柱状图 -->
-      <div id="bar4"></div>
-      <!-- 横向柱状图 -->
-      <div id="bar5"></div>
-      <!-- 柱状图 -->
-      <div id="bar6"></div>
+      <div id="gauge"></div>
+      <div id="gauge1"></div>
+      <div id="gauge2"></div>
+      <div id="gauge3"></div>
+      <div id="gauge4"></div>
+      <div id="gauge5"></div>
+      <div id="gauge6"></div>
     </section>
 
     <script type="module">
       import { debounce, customInterval } from '../../utils/common.js'
       import { handleInitChart, handleChartOptions } from '../../utils/charts.js'
-      import * as barOptions from './bar.js'
+      import { handleGaugeOptionsData } from './gauge.js'
+      import { handleGaugeOptionsData1 } from './gauge1.js'
+      import { handleGaugeOptionsData2 } from './gauge2.js'
 
-      let echartsInstances = new Array(7).fill(undefined)
+      const options = [handleGaugeOptionsData, handleGaugeOptionsData1, handleGaugeOptionsData2]
+
+      let echartsInstances = new Array(3).fill(undefined)
       let intervalFun = { clear: () => {} }
       const resizeFun = () => handleResize()
 
       const handleAllChartInstance = () => {
         echartsInstances = echartsInstances.map((_, index) =>
-          handleInitChart(`bar${index === 0 ? '' : index}`)
+          handleInitChart(`gauge${index === 0 ? '' : index}`)
         )
       }
       const handleAllChartOptions = () => {
         echartsInstances.forEach((instance, index) => {
           if (instance) {
-            const optionsFunction = `handleBarOptionsData${index === 0 ? '' : index}`
-            handleChartOptions(instance, barOptions[optionsFunction]())
+            const optionsResult = options[index]()
+            handleChartOptions(instance, optionsResult)
           }
         })
       }

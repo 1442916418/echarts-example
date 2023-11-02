@@ -16,5 +16,47 @@ body {
 .container > div {
   padding: 16px;
   height: 300px;
-  border-radius: 5px solid #36d7ff;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+.container > div:hover {
+  border-color: #d8f7ff;
+}
+
+.container .menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .menu i {
+  font-size: 50px;
+  color: #fff;
+}
+
+.container .menu a {
+  line-height: 36px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+
+a:link {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(111, 0, 255);
+}
+
+a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+a:active {
+  color: blue;
 }
