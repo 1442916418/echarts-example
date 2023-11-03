@@ -4,37 +4,37 @@ export const getBarVirtualData = () => {
   return {
     seriesData: {
       T1: {
-        name: 'T1',
-        data: getRandomList()
+        name: '报警器1',
+        data: getRandomList(8)
       },
       T2: {
-        name: 'T2',
-        data: getRandomList()
+        name: '报警器2',
+        data: getRandomList(8)
       },
       T3: {
-        name: 'T3',
-        data: getRandomList()
+        name: '报警器3',
+        data: getRandomList(8)
       },
       T4: {
-        name: 'T4',
-        data: getRandomList()
+        name: '报警器4',
+        data: getRandomList(8)
       }
     },
-    xAxisDataList: getGenerateArrayWithPrefix(10)
+    xAxisDataList: getGenerateArrayWithPrefix(8, '', 'Month')
   }
 }
 
 export const getBarVirtualData1 = () => {
   const lens = new Array(5).fill('')
   const result = {
-    xAxisDataList: getGenerateArrayWithPrefix(),
+    xAxisDataList: getGenerateArrayWithPrefix(5, '车辆'),
     seriesDataList: [],
     seriesDataList1: []
   }
 
   lens.forEach(() => {
-    result.seriesDataList.push(getRandomInt())
-    result.seriesDataList1.push(getRandomInt())
+    result.seriesDataList.push(getRandomInt(80, 300))
+    result.seriesDataList1.push(getRandomInt(50, 140))
   })
 
   return result
@@ -42,24 +42,24 @@ export const getBarVirtualData1 = () => {
 
 export const getBarVirtualData2 = () => {
   return {
-    xAxisDataList: getGenerateArrayWithPrefix(),
-    legendDataList: [{ name: 'A1' }, { name: 'A2' }],
-    seriesDataList: { A1: getRandomList(5), A2: getRandomList(5) }
+    xAxisDataList: getGenerateArrayWithPrefix(5, '', 'Month'),
+    legendDataList: [{ name: '报警器1' }, { name: '报警器2' }],
+    seriesDataList: { 报警器1: getRandomList(5, 1, 10), 报警器2: getRandomList(5, 10, 20) }
   }
 }
 
 export const getBarVirtualData3 = () => {
   return {
-    xAxisDataList: getGenerateArrayWithPrefix(),
-    legendDataList: [{ name: '今年' }, { name: '去年' }],
-    seriesDataList: { 今年: getRandomList(5), 去年: getRandomList(5) }
+    xAxisDataList: getGenerateArrayWithPrefix(12, '', 'Month'),
+    legendDataList: [{ name: '产品A' }, { name: '产品B' }],
+    seriesDataList: { 产品A: getRandomList(12), 产品B: getRandomList(12) }
   }
 }
 
 export const getBarVirtualData4 = () => {
   return {
-    xAxisDataList: getGenerateArrayWithPrefix(),
-    seriesDataList: getRandomList(5)
+    xAxisDataList: getGenerateArrayWithPrefix(6, '', 'Month'),
+    seriesDataList: getRandomList(6, 1, 100)
   }
 }
 

@@ -98,6 +98,7 @@ const getOutsideCharts = (min, max, color, data, name, isAlarm) => {
     }
   ]
 }
+
 /**
  * 获取外圈渐变色
  * @param {Number} min 最小值

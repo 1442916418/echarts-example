@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>饼图 | ECharts</title>
+    <link rel="stylesheet" href="../../../style.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <section class="container">
+      <div id="pie"></div>
+      <div id="pie1"></div>
+      <div id="pie2"></div>
+      <div id="pie3"></div>
+      <div id="pie4"></div>
+      <div id="pie5"></div>
+      <div id="pie6"></div>
+    </section>
+
+    <script type="module">
+      import { debounce, customInterval } from '../../utils/common.js'
+      import { handleInitChart, handleChartOptions } from '../../utils/charts.js'
+      import * as pieOptions from './pie.js'
+
+      let echartsInstances = new Array(6).fill(undefined)
+      let intervalFun = { clear: () => {} }
+      const resizeFun = () => handleResize()
+
+      const handleAllChartInstance = () => {
+        echartsInstances = echartsInstances.map((_, index) =>
+          handleInitChart(`pie${index === 0 ? '' : index}`)
+        )
+      }
+      const handleAllChartOptions = () => {
+        echartsInstances.forEach((instance, index) => {
+          if (instance) {
+            const optionsFunction = `handlePieOptionsData${index === 0 ? '' : index}`
+            handleChartOptions(instance, pieOptions[optionsFunction]())
+          }
+        })
+      }
+      const handleAllChartResize = () => {
+        echartsInstances.forEach((instance) => {
+          instance?.resize()
+        })
+      }
+      const handleAllInitChart = () => {
+        handleAllChartInstance()
+        handleAllChartOptions()
+      }
+      const handleResize = debounce(() => {
+        handleAllChartResize()
+      }, 300)
+      const handleAddEventListener = () => {
+        window.addEventListener('resize', resizeFun, { passive: true })
+      }
+      const handleRemoveEventListener = () => {
+        window.removeEventListener('resize', resizeFun)
+      }
+      const handleChartRefresh = () => {
+        intervalFun.clear()
+
+        intervalFun = customInterval(() => handleAllChartOptions(), 3000)
+      }
+      const handleInit = () => {
+        handleAllInitChart()
+        // handleChartRefresh()
+        handleAddEventListener()
+      }
+      const handleReset = () => {
+        intervalFun.clear()
+        handleRemoveEventListener()
+      }
+
+      window.onload = handleInit
+      window.onunload = handleReset
+    </script>
+  </body>
+</html>

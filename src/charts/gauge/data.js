@@ -2,8 +2,8 @@ import { getRandomInt } from '../../utils/common.js'
 
 export const getGaugeVirtualData = () => {
   return {
-    name: 'A',
-    data: getRandomInt(0, 60),
+    name: '压力仪表',
+    data: getRandomInt(30, 60),
     uom: '%',
     isAlarm: Math.random() > 0.5,
     lowerRange: 0, // 初始下量程

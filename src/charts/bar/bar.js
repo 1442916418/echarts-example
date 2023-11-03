@@ -172,7 +172,7 @@ const handleSvg = (shadowColor = '#1ED8EF', shadowBlur = 8) => {
 /** 双侧 y 轴柱状图 */
 export const handleBarOptionsData1 = () => {
   const colorList = ['#1ED8EF', '#3476E1']
-  const names = ['km/h', 'km/h']
+  const names = ['km/h', 'L/100km']
   const { xAxisDataList, seriesDataList, seriesDataList1 } = virtualData.getBarVirtualData1()
 
   return {
@@ -289,7 +289,7 @@ export const handleBarOptionsData2 = () => {
     [HexToRGBA(colorList[0], 0.16), colorList[0]],
     [HexToRGBA(colorList[1], 0.16), colorList[1]]
   ]
-  const suffix = '个'
+  const suffix = '次'
 
   const { xAxisDataList, legendDataList, seriesDataList } = virtualData.getBarVirtualData2()
   const newSeriesDataList = []
@@ -428,13 +428,13 @@ export const handleBarOptionsData2 = () => {
       boundaryGap: true,
       data: xAxisDataList,
       axisLabel: {
-        formatter: (value) => {
-          if (value.length > 3) {
-            return `${value.substring(0, 3)}\n${value.substring(3)}`
-          }
+        // formatter: (value) => {
+        //   if (value.length > 3) {
+        //     return `${value.substring(0, 3)}\n${value.substring(3)}`
+        //   }
 
-          return value
-        },
+        //   return value
+        // },
         color: '#fff'
       },
       axisLine: {
@@ -460,7 +460,7 @@ export const handleBarOptionsData3 = () => {
     [colorList[0], '#154EBF'],
     [colorList[1], '#553DAD']
   ]
-  const suffix = '条'
+  const suffix = '台'
 
   const { xAxisDataList, legendDataList, seriesDataList } = virtualData.getBarVirtualData3()
   const newSeriesDataList = []
@@ -571,13 +571,13 @@ export const handleBarOptionsData3 = () => {
       boundaryGap: true,
       data: xAxisDataList,
       axisLabel: {
-        formatter: (value) => {
-          if (value.length > 3) {
-            return `${value.substring(0, 3)}\n${value.substring(3)}`
-          }
+        // formatter: (value) => {
+        //   if (value.length > 3) {
+        //     return `${value.substring(0, 3)}\n${value.substring(3)}`
+        //   }
 
-          return value
-        },
+        //   return value
+        // },
         color: '#fff'
       },
       axisLine: {
@@ -678,13 +678,13 @@ export const handleBarOptionsData4 = () => {
       boundaryGap: true,
       data: xAxisDataList,
       axisLabel: {
-        formatter: (value) => {
-          if (value.length > 3) {
-            return `${value.substring(0, 3)}\n${value.substring(3)}`
-          }
+        // formatter: (value) => {
+        //   if (value.length > 3) {
+        //     return `${value.substring(0, 3)}\n${value.substring(3)}`
+        //   }
 
-          return value
-        },
+        //   return value
+        // },
         color: '#fff'
       },
       axisLine: {

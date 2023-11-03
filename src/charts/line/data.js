@@ -1,10 +1,10 @@
-import { getRandomInt, getRandomList, getGenerateArrayWithPrefix, HexToRGBA } from '../../utils/common.js'
+import { getRandomList, getGenerateArrayWithPrefix, HexToRGBA } from '../../utils/common.js'
 
 export const getLineVirtualData = () => {
   const colorList = ['#04BDF8', '#08FCDF']
-  const xAxisDataList = getGenerateArrayWithPrefix(5, '', 'Day')
-  const legendDataList = [{ name: '正常' }, { name: '异常' }]
-  const seriesData = { 正常: getRandomList(5), 异常: getRandomList(5) }
+  const xAxisDataList = getGenerateArrayWithPrefix(7, '', 'Day')
+  const legendDataList = [{ name: '最高' }, { name: '最低' }]
+  const seriesData = { 最高: getRandomList(7), 最低: getRandomList(7, -20, 5) }
 
   const seriesDataList = legendDataList.map((item, i) => {
     const curColor = colorList[i]

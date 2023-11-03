@@ -457,7 +457,7 @@ export const handleLineOptionsData3 = () => {
     },
     yAxis: {
       type: 'value',
-      name: '次',
+      name: '°C',
       nameTextStyle: {
         fontSize: 12,
         align: 'right'
