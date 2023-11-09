@@ -365,3 +365,46 @@ export const getPieVirtualData5 = () => {
 
   return { colors, seriesDataList, suffix, total }
 }
+
+/**
+ * https://www.msn.cn/zh-cn/weather/records/in-%E5%90%89%E6%9E%97%E7%9C%81,%E5%90%89%E6%9E%97%E5%B8%82?loc=eyJsIjoi5ZCJ5p6X5biCIiwiciI6IuWQieael%2BecgSIsImMiOiLkuK3ljY7kurrmsJHlhbHlkozlm70iLCJpIjoiY24iLCJ0IjoxMDIsImciOiJ6aC1jbiIsIngiOiIxMjYuNTQ5Mjg1ODg4NjcxODgiLCJ5IjoiNDMuODM4MTkxOTg2MDgzOTg0In0%3D&weadegreetype=C&ocid=ansmsnweather
+ * https://echarts.apache.org/examples/zh/editor.html?c=pie-nest
+ */
+export const getPieVirtualData6 = () => {
+  const getColor = (c1 = 'red', c2 = 'blue') => {
+    return {
+      type: 'linear',
+      x: 0,
+      y: 0,
+      x2: 0,
+      y2: 1,
+      colorStops: [
+        {
+          offset: 0,
+          color: c1
+        },
+        {
+          offset: 1,
+          color: c2
+        }
+      ],
+      global: false // 缺省为 false
+    }
+  }
+  const legendDataList = ['晴朗', '阴', '雨', '雪']
+  const seriesDataList = legendDataList.map((name) => {
+    return { value: getRandomInt(10, 100), name }
+  })
+
+  return {
+    colors: [
+      getColor('#FF4C14', '#FFE249'),
+      getColor('#E700A7', '#FF49CC'),
+      getColor('#BCFFFB', '#00FFF0'),
+      getColor('#0EA6FF', '#0066FF')
+    ],
+    legendDataList,
+    seriesDataList,
+    seriesDataList1: seriesDataList
+  }
+}

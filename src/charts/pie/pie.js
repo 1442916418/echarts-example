@@ -525,3 +525,82 @@ export const handlePieOptionsData5 = () => {
     ]
   }
 }
+
+export const handlePieOptionsData6 = () => {
+  const data = virtualData.getPieVirtualData6()
+
+  return {
+    color: data.colors,
+    title: [
+      {
+        text: '天气概况',
+        subtext: '外部圆: 历史平均值 内部圆: 2023',
+        top: 0,
+        left: 0,
+        textStyle: {
+          fontSize: 14,
+          color: '#ffffff'
+        },
+        subtextStyle: {
+          fontSize: 12,
+          color: '#cccccc'
+        }
+      },
+      {
+        text: '年份',
+        subtext: '2023',
+        top: '40%',
+        left: 'center',
+        textStyle: {
+          fontSize: 16,
+          color: '#ffffff'
+        },
+        subtextStyle: {
+          fontSize: 26,
+          color: '#ffffff',
+          fontWeight: 'bold'
+        }
+      }
+    ],
+    legend: {
+      data: data.legendDataList,
+      itemWidth: 5,
+      itemHeight: 5,
+      itemGap: 40,
+      left: 'center',
+      bottom: 0,
+      icon: 'circle',
+      textStyle: {
+        color: '#ffffff'
+      }
+    },
+    tooltip: {
+      show: true,
+      extraCssText: 'box-shadow: 0 0 0 rgba(0, 0, 0, 0);',
+      borderColor: 'transparent',
+      backgroundColor: 'rgba(0, 0, 0, 0.2)',
+      color: '#ffffff',
+      formatter: '{a} <br /> {c}'
+    },
+    series: [
+      {
+        name: '2023',
+        type: 'pie',
+        radius: ['35%', '48%'],
+        label: {
+          show: false
+        },
+        data: data.seriesDataList
+      },
+      {
+        name: '历史平局值',
+        type: 'pie',
+        radius: ['52%', '56%'],
+        label: {
+          show: false
+        },
+        data: data.seriesDataList1
+      }
+    ]
+  }
+}
