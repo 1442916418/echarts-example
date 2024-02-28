@@ -1,7 +1,7 @@
 import * as virtualData from './data.js'
 import { HexToRGBA } from '../../utils/common.js'
 
-/** 折线图 */
+/** 未来一周的气温变化统计 */
 export const handleLineOptionsData = () => {
   const data = virtualData.getLineVirtualData()
 
@@ -83,7 +83,7 @@ export const handleLineOptionsData = () => {
 }
 
 /**
- * 折线图
+ * 近九天氮气消耗量统计
  * @description 超出平均值颜色变换
  */
 export const handleLineOptionsData1 = () => {
@@ -249,7 +249,7 @@ export const handleLineOptionsData1 = () => {
   }
 }
 
-/** 折线图 */
+/** 近十天告警次数统计 */
 export const handleLineOptionsData2 = () => {
   const data = virtualData.getLineVirtualData2()
 
@@ -373,6 +373,9 @@ export const handleLineOptionsData2 = () => {
   }
 }
 
+/**
+ * 多类型统计
+ */
 export const handleLineOptionsData3 = () => {
   const data = virtualData.getLineVirtualData3()
   const newSeriesData = []

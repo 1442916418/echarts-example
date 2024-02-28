@@ -2,7 +2,7 @@ import * as virtualData from './data.js'
 import { handleChartCustomInit } from '../../utils/charts.js'
 import { HexToRGBA } from '../../utils/common.js'
 
-/** 堆叠图 */
+/** 月度分类堆叠柱状图分析 */
 export const handleBarOptionsData = () => {
   const colors = ['#05E07D', '#04A8E8', '#f6dc7d', '#86c6e2']
   const { seriesData, xAxisDataList } = virtualData.getBarVirtualData()
@@ -169,7 +169,7 @@ const handleSvg = (shadowColor = '#1ED8EF', shadowBlur = 8) => {
   return 'image://' + insetShadowUrl
 }
 
-/** 双侧 y 轴柱状图 */
+/** 车辆性能对比分析 */
 export const handleBarOptionsData1 = () => {
   const colorList = ['#1ED8EF', '#3476E1']
   const names = ['km/h', 'L/100km']
@@ -282,7 +282,7 @@ export const handleBarOptionsData1 = () => {
   }
 }
 
-/** 横向柱状图 */
+/** 五个月报警器销售对比 */
 export const handleBarOptionsData2 = () => {
   const colorList = ['#F25D27', '#1B63F2']
   const linearColor = [
@@ -453,7 +453,7 @@ export const handleBarOptionsData2 = () => {
   }
 }
 
-/** 柱状图 */
+/** 十二月内产品A与产品B的销售对比 */
 export const handleBarOptionsData3 = () => {
   const colorList = ['#1B63F2', '#7957F9']
   const linearColor = [
@@ -620,7 +620,7 @@ export const handleBarOptionsData3 = () => {
   }
 }
 
-/** 立体柱状图 */
+/** 六个月内总销售的数据趋势 */
 export const handleBarOptionsData4 = () => {
   handleChartCustomInit()
 
@@ -816,7 +816,7 @@ export const handleBarOptionsData4 = () => {
   }
 }
 
-/** 横向柱状图 */
+/** 1-5楼层报警次数和故障次数统计 */
 export const handleBarOptionsData5 = () => {
   const { yAxisDataList, seriesDataList, seriesDataList1 } = virtualData.getBarVirtualData5()
 
@@ -905,7 +905,7 @@ export const handleBarOptionsData5 = () => {
   }
 }
 
-/** 柱状图 */
+/** 动画延迟柱状图 */
 export const handleBarOptionsData6 = () => {
   const colorList = ['#06F7A1', '#a2a3a7']
   const { xAxisDataList, seriesDataList, seriesDataList1 } = virtualData.getBarVirtualData6()

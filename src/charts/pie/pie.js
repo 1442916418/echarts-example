@@ -10,7 +10,7 @@ const PIE_BG_IMAGES = {
 }
 
 /**
- * 饼图
+ * 部件数量指数仪表盘
  * @description 自定义图案
  */
 export const handlePieOptionsData = () => {
@@ -155,7 +155,7 @@ export const handlePieOptionsData = () => {
 }
 
 /**
- * 饼图
+ * 预警信息处理状态分析
  * @description 间隔图
  */
 export const handlePieOptionsData1 = () => {
@@ -212,7 +212,7 @@ export const handlePieOptionsData1 = () => {
 }
 
 /**
- * 饼图
+ * 设备状态分析
  * @description 间隔图
  */
 export const handlePieOptionsData2 = () => {
@@ -295,7 +295,7 @@ export const handlePieOptionsData2 = () => {
 }
 
 /**
- * 饼图
+ * 告警信息状态分析
  */
 export const handlePieOptionsData3 = () => {
   const data = virtualData.getPieVirtualData3()
@@ -359,7 +359,7 @@ export const handlePieOptionsData3 = () => {
 }
 
 /**
- * 饼图
+ * 告警信息处理进度分析
  */
 export const handlePieOptionsData4 = () => {
   const { per, value, total, color } = virtualData.getPieVirtualData4()
@@ -449,6 +449,9 @@ export const handlePieOptionsData4 = () => {
   }
 }
 
+/**
+ * 各省市及国外项目数量统计分析
+ */
 export const handlePieOptionsData5 = () => {
   const data = virtualData.getPieVirtualData5()
 
@@ -526,6 +529,9 @@ export const handlePieOptionsData5 = () => {
   }
 }
 
+/**
+ * 年度天气概况对比分析
+ */
 export const handlePieOptionsData6 = () => {
   const data = virtualData.getPieVirtualData6()
 

@@ -341,7 +341,7 @@ const getOutsideChartsLinearGradient = (min, max, insideMin, insideMax, isAlarm)
 }
 
 /**
- * 仪表盘
+ * 旋转式仪表盘
  * @description 根据上下限计算颜色
  */
 export const handleGaugeOptionsData = () => {
